@@ -2,43 +2,43 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    public GameObject player;
-    private PlayerScript playerScript;
-    private PlayerData playerData;
-    private DamageData damageData;
+  public GameObject player;
+  private PlayerScript playerScript;
+  private PlayerData playerData;
+  private DamageData damageData;
 
 
-    private void Start()
+  private void Start()
+  {
+    playerScript = FindObjectOfType<PlayerScript>();
+    playerData = new PlayerData();
+    damageData = new DamageData();
+  }
+
+  public void OnCollisionEnter(Collision other)
+  {
+    if (other == null)
     {
-        playerScript = FindObjectOfType<PlayerScript>();
-        playerData = new PlayerData();
-        damageData = new DamageData();
+      return;
+    }
+    if (other.gameObject.name == "Player")
+    {
+      Debug.Log("æ’åˆ°äº†");
+      playerScript.hp -= damageData.common;
+    }
+  }
+  public void OnTriggerEnter(Collider other)
+  {
+    //ç¬¬ä¸€äººç¨±å¯èƒ½æ‰ç”¨é€™å€‹
+    if (other == null)
+    {
+      return;
+    }
+    if (other.gameObject.name == "Player")
+    {
+      Debug.Log("æ’åˆ°äº†");
+      playerScript.hp -= damageData.common;
     }
 
-    public void OnCollisionEnter(Collision other)
-    {
-        if (other == null)
-        {
-            return;
-        }
-        if (other.gameObject.name == "Player")
-        {
-            Debug.Log("¼²¨ì¤F");
-            playerScript.hp -= damageData.common;
-        }
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        //²Ä¤@¤HºÙ¥i¯à¤~¥Î³o­Ó
-        if (other == null)
-        {
-            return;
-        }
-        if (other.gameObject.name == "Player")
-        {
-            Debug.Log("¼²¨ì¤F");
-            playerScript.hp -= damageData.common;
-        }
-
-    }
+  }
 }
