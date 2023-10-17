@@ -5,12 +5,15 @@ public class Damage : MonoBehaviour
     public GameObject player = null;
     private PlayerScript playerScript = null;
     private PlayerData playerData;
+    private DamageData damageData;
 
 
     private void Start()
     {
         playerScript = FindObjectOfType<PlayerScript>();
         playerData = new PlayerData();
+        damageData = new DamageData();
+
     }
 
     public void OnCollisionEnter(Collision other)
@@ -22,7 +25,7 @@ public class Damage : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             Debug.Log("撞到了");
-            playerScript.hp -= 1;
+            playerScript.hp -= damageData.common;
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -35,7 +38,7 @@ public class Damage : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             Debug.Log("撞到了");
-            playerScript.hp -= 1;
+            playerScript.hp -= damageData.common;
         }
 
     }

@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     PlayerData playerData;
+    public HealthBar healthBar;
+
     public int hp;
     public int mp;
     private float speed;
+
+
     void Start()
     {
         playerData = new PlayerData();
@@ -19,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     {
 
         Debug.Log("¦å¶q:" + hp);
+        healthBar.SetHealth(hp);
     }
 
     private void UpdatePlayerData()
