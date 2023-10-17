@@ -11,11 +11,10 @@ public class PlayerScript : MonoBehaviour
     public int mp;
     private float speed;
 
-
     void Start()
     {
         playerData = new PlayerData();
-        UpdatePlayerData();
+        PlayerDataInit();
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class PlayerScript : MonoBehaviour
         healthBar.SetHealth(hp);
     }
 
-    private void UpdatePlayerData()
+    private void PlayerDataInit()
     {
         hp = playerData.healthPoint;
         mp = playerData.manaPoint;

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    public GameObject player = null;
-    private PlayerScript playerScript = null;
+    public GameObject player;
+    private PlayerScript playerScript;
     private PlayerData playerData;
     private DamageData damageData;
 
@@ -13,7 +13,6 @@ public class Damage : MonoBehaviour
         playerScript = FindObjectOfType<PlayerScript>();
         playerData = new PlayerData();
         damageData = new DamageData();
-
     }
 
     public void OnCollisionEnter(Collision other)
@@ -30,7 +29,7 @@ public class Damage : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        //第一人稱才用這個
+        //第一人稱可能才用這個
         if (other == null)
         {
             return;
