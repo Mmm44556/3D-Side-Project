@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateFloor : MonoBehaviour
+public class QuickCreate : MonoBehaviour
 {
     public GameObject floorPrefab; // 將石頭地板Prefab分配給這個變數
 
@@ -19,7 +19,7 @@ public class CreateFloor : MonoBehaviour
             {
                 // 設置Prefab的位置
                 Vector3 position = new Vector3(i * prefabHeight, 0, j * prefabWidth);
-                Instantiate(floorPrefab, position, Quaternion.identity);
+                Instantiate(floorPrefab, position, floorPrefab.transform.rotation);
             }
         }
     }
