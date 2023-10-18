@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleController : MonoBehaviour
 {
-    //Â²³æ¥ÎÁä½L±±¨î²¾°Êªº¸}¥»
+    //ç°¡å–®ç”¨éµç›¤æ§åˆ¶ç§»å‹•çš„è…³æœ¬
     public float speed = 5f;
     void Update()
     {
@@ -12,6 +12,6 @@ public class SimpleController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
         movement.Normalize();
-        transform.Translate(movement * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * movement);
     }
 }
